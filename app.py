@@ -8,6 +8,7 @@ from flask import request
 
 app = Flask(__name__)
 
+
 urls = [
     "https://cf-st.sc-cdn.net/d/OCX13TlDEXbS0A8PUQf7P.111?bo=EhgaABoAMgEEOgF9QgYIy7OTngZIAlAFYAE%3D&uc=5",
     "https://cf-st.sc-cdn.net/d/9SS6eVdk3S4lmtQUN5suM.111?bo=EhgaABoAMgEEOgF9QgYIqrOTngZIAlAFYAE%3D&uc=5",
@@ -53,7 +54,6 @@ urls = [
     "https://cf-st.sc-cdn.net/d/gpgRKkXxQ503jn24wvcFB.111?bo=EhgaABoAMgEEOgF9QgYIp7OTngZIAlAFYAE%3D&uc=5",
     "https://cf-st.sc-cdn.net/d/Pdfzn39Bw6ypTfsUKKIvt.111?bo=EhgaABoAMgEEOgF9QgYIrLOTngZIAlAFYAE%3D&uc=5",
     "https://cf-st.sc-cdn.net/d/KZeG3ueSP9mOFRADffWZD.111?bo=EhgaABoAMgEEOgF9QgYIrbOTngZIAlAFYAE%3D&uc=5",
-    "https://cf-st.sc-cdn.net/d/PrEAtoVdqyz3H6whKZpo8.380?bo=EhgaABoAMgEEOgF9QgYIva6TngZIAlAFYAE%3D&uc=5",
 ]
 
 
