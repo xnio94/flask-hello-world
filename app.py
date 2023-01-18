@@ -4,6 +4,7 @@ import urllib
 
 from flask import Flask
 from flask import send_file
+from flask import request
 
 app = Flask(__name__)
 
@@ -24,9 +25,12 @@ def hello_world():
 
 @app.route('/download')
 def downloadFile():
+    # username = request.args.get('username')
+    # password = request.args.get('password')
+    #
     with open("list.txt", "w") as f:
         for i in range(0, len(urls)):
-            f.write(f"{i}.mp4\n")
+            f.write(f"file {i}.mp4\n")
     for i, url in enumerate(urls):
         filename = os.path.join('./', str(i) + ".mp4")
         if not os.path.isfile(filename):
@@ -35,5 +39,8 @@ def downloadFile():
     command = "ffmpeg -f concat -i list.txt -c copy output.mp4"
     x = subprocess.run(command, shell=True)
 
-    path = "./" + "output.mp4"
+    command = "ffmpeg -i output.mp4 -vf scale=1080:1920 -preset ultrafast -threads 4 -c:a copy output2.mp4"
+    x = subprocess.run(command, shell=True)
+
+    path = "output2.mp4"
     return send_file(path, as_attachment=True)
