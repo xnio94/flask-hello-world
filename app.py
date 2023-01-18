@@ -39,8 +39,9 @@ def downloadFile():
     command = "ffmpeg -f concat -i list.txt -c copy output.mp4"
     x = subprocess.run(command, shell=True)
 
-    command = "ffmpeg -i output.mp4 -vf scale=1080:1920 -preset ultrafast -threads 4 -c:a copy output2.mp4"
-    x = subprocess.run(command, shell=True)
+    # command = "ffmpeg -i output.mp4 -vf scale=1080:1920 -preset ultrafast -threads 4 -c:a copy output2.mp4"
+    # x = subprocess.run(command, shell=True)
 
-    path = "output2.mp4"
+
+    path = "output.mp4"
     return send_file(path, as_attachment=True)
