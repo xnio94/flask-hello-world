@@ -57,7 +57,10 @@ def downloadFile():
         count = request.args.get('count')
         count = int(count)
         title, urls = get_title_urls(episode_link)
-        urls = urls[0:count]
+        # urls = urls[0:count]
+        if count == -1:
+            count = len(urls) - 1
+
         valid_count = 0
         for i in range(count):
             filename = os.path.join('./', str(valid_count) + ".mp4")
@@ -81,7 +84,10 @@ def downloadFile():
             os.remove(title)
         command = "ffmpeg -f concat -i list.txt -c copy " + title
         x = subprocess.run(command, shell=True)
+        return jsonify({"ready": "Ok"})
 
+    if action == 'download':
+        title = request.args.get('title')
         return send_file(title, as_attachment=True)
 
 
