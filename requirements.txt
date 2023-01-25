@@ -3,3 +3,4 @@ Gunicorn
 beautifulsoup4
 munch
 requests
+flask-cors
